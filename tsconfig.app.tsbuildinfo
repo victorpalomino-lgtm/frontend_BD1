@@ -1,1 +1,1 @@
-{"root":["./src/app.tsx","./src/api.ts","./src/main.tsx","./src/types.ts","./src/vite-env.d.ts","./src/components/healthbar.tsx"],"version":"5.9.3"}
+{"root":["./src/app.tsx","./src/api.ts","./src/main.tsx","./src/types.ts","./src/vite-env.d.ts","./src/components/benchmarkchart.tsx","./src/components/healthbar.tsx","./src/components/injectiondemo.tsx","./src/components/planview.tsx","./src/components/queryrunner.tsx","./src/components/resultview.tsx","./src/hooks/usehealth.ts"],"version":"5.9.3"}

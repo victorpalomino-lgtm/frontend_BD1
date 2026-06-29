@@ -1,35 +1,9 @@
 // F1 — Estado de conexión con el backend + escalas disponibles.
-// Llama GET /api/health y muestra un punto verde/rojo, "conectado a N escalas"
-// y un chip por cada escala viva.
-import { useCallback, useEffect, useState } from 'react'
-import { getHealth, getApiErrorMessage, apiBaseURL } from '../api'
-import type { HealthResponse } from '../types'
+// Presentacional: el estado de /api/health vive en App (hook useHealth).
+import { apiBaseURL } from '../api'
+import type { UseHealth } from '../hooks/useHealth'
 
-type Status = 'loading' | 'ok' | 'error'
-
-export default function HealthBar() {
-  const [status, setStatus] = useState<Status>('loading')
-  const [health, setHealth] = useState<HealthResponse | null>(null)
-  const [error, setError] = useState<string | null>(null)
-
-  const check = useCallback(async () => {
-    setStatus('loading')
-    setError(null)
-    try {
-      const data = await getHealth()
-      setHealth(data)
-      setStatus('ok')
-    } catch (err) {
-      setError(getApiErrorMessage(err))
-      setHealth(null)
-      setStatus('error')
-    }
-  }, [])
-
-  useEffect(() => {
-    check()
-  }, [check])
-
+export default function HealthBar({ status, health, error, refetch }: UseHealth) {
   const scales = health?.scalesAvailable ?? []
   const n = scales.length
 
@@ -46,7 +20,7 @@ export default function HealthBar() {
           {status === 'error' && 'Sin conexión'}
         </span>
 
-        <button className="ghost" onClick={check} disabled={status === 'loading'}>
+        <button className="ghost" onClick={refetch} disabled={status === 'loading'}>
           Reintentar
         </button>
       </div>

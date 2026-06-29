@@ -42,21 +42,21 @@ El frontend puede arrancar contra datos de ejemplo del contrato aunque el backen
   - Vite + React + TS. `axios` con `baseURL` desde `VITE_API_URL`.
   - Mostrar el estado de conexión y las escalas disponibles (`/api/health`).
 
-- [ ] **F2 — Selector de consulta**
+- [x] **F2 — Selector de consulta**
   - Cargar `/api/queries`, dropdown de consulta + dropdown de escala + toggle "con índice".
   - Inputs dinámicos según `params` (date para C2, number para C3).
 
-- [ ] **F3 — Panel de ejecución (núcleo del demo)**
+- [x] **F3 — Panel de ejecución (núcleo del demo)**
   - Botón "Ejecutar" → `POST /api/run`.
   - Mostrar: `sqlMostrado` + `paramsBindeados` (resaltados), `executionTimeMs`,
     tabla de `rows`, y el `plan` en bloque monoespaciado con scroll.
 
-- [ ] **F4 — Panel de SQL injection**
+- [x] **F4 — Panel de SQL injection**
   - Input de texto + botón. Llama `/api/injection-demo`.
   - Mostrar el SQL, el `paramBindeado`, las filas (o cero) y la `nota`.
   - Incluir 2–3 payloads de ejemplo clicables (ver `03_QUERIES.md`).
 
-- [ ] **F5 — Gráfico 1k→1M (opcional)**
+- [x] **F5 — Gráfico 1k→1M (opcional)**
   - `POST /api/benchmark` → curva con `recharts` (sin índice vs con índice, eje Y log).
 
 ## Demo / deploy
